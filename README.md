@@ -3,7 +3,7 @@ This is an incredibly simple and lightweight program to receive logs from two pr
 
 All it does is listen for UDP packets coming from localhost to a port, and spits out whatever it is given. With rainbow colors!
 
-<img alt="image" src="https://github.com/user-attachments/assets/c217e76b-c68a-49cd-96e3-f737bb3a2349" />
+<img alt="Image of slip running on Konsole" src="https://github.com/user-attachments/assets/f15987f5-e08a-4e4a-a869-93a25e46bfa6" />
 
 
 ## Usage
