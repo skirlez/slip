@@ -6,8 +6,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - { os: ubuntu-latest, artifact-name: slip-ubuntu-amd64 }
-          - { os: windows-latest, artifact-name: slip-windows-amd64 }
+          - { os: ubuntu-latest, artifact-name: slip-ubuntu-amd64, executable-name: "slip"  }
+          - { os: windows-latest, artifact-name: slip-windows-amd64, executable-name: "slip.exe" }
 
     runs-on: ${{ matrix.os }}
     steps:
@@ -16,9 +16,10 @@ jobs:
       - name: Setup Rust and Cargo
         uses: moonrepo/setup-rust@v1.3.0
       - name: Build
-        run: cargo build --release
+        run: |
+          cargo build --release
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix['artifact-name'] }}
-          path: target/release/slip
+          path: target/release/${{ matrix['executable-name'] }}
