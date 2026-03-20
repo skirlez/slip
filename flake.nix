@@ -14,7 +14,7 @@
         pname = "slip";
         version = "1.1.0";
         src = ./.;
-        cargoHash = "sha256-lA+7hcPJWS34d5M4GOAFUBokzFYzza1QOxqrxlpp63M=";
+        cargoHash = "sha256-GaQA/X1yglINaj8oktVk/DW8Pu8t872V+1olgJgbge0=";
       });
       devShells.x86_64-linux.default = pkgs.mkShell {
         packages = with pkgs; [
