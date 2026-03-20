@@ -5,7 +5,8 @@ use colored::*;
 fn main() -> std::io::Result<()> {
 	let args: Vec<String> = env::args().collect();
 	let port: i32;
-	if args.len() == 2 {
+	let host: &str;
+	if args.len() >= 2 {
 		let result: Result<i32, _> = args[1].parse();
 		port = match result {
 			Ok(n) => n,
@@ -13,14 +14,23 @@ fn main() -> std::io::Result<()> {
 				println!("Invalid port provided, using 1235");
 				1235
 			}
+		};
+		if args.len() == 3 {
+			host = &args[2];
+		}
+		else {
+			host = "127.0.0.1";
 		}
 	}
 	else {
+		host = "127.0.0.1";
 		port = 1235;
 	}
-	println!("Listening on port {}", port.to_string());
-	let socket = UdpSocket::bind(format!("127.0.0.1:1235"))?;
-	let colors = [Color::Red, Color::Yellow, Color::BrightYellow, Color::Green, Color::Blue, Color::BrightMagenta, Color::White];
+	
+	let addr = format!("{}:{}", host, port);
+	let socket = UdpSocket::bind(&addr)?;
+	println!("Bound to {}", addr);
+	let colors = [Color::Red, Color::Yellow, Color::BrightYellow, Color::BrightGreen, Color::Green, Color::Blue, Color::Magenta];
 	let mut color_index: usize = 0; 
 	let mut buf = [0u8; 32768];
 	loop {

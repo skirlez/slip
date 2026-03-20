@@ -6,21 +6,15 @@ All it does is listen for UDP packets coming from localhost to a port, and spits
 ![image](https://github.com/user-attachments/assets/f987b062-1312-405c-8cbd-adb774942f89)
 
 ## Usage
-`./slip` (uses port 1235)
+`./slip` (uses port 1235 and host 127.0.0.1)
 
-`./slip [port]`
+`./slip [port] [host]`
 
 ## Building
 `cargo build [--release]`
 
-For Nix users, you have `shell.nix`, from which you can do
-
-`cargo build [--release] [--target x86_64-pc-windows-gnu]`
-
 ## License
-`shell.nix` is taken (and modified) from https://github.com/jraygauthier/jrg-rust-cross-experiment/tree/master/simple-static-rustup-target-windows, so it is licensed under the Apache 2.0 license.
-
-The rest is licensed under the AGPLv3 license.
+AGPLv3
 
 ## Contributing
 Please contribute
